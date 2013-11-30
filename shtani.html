@@ -4,17 +4,9 @@
 		<script>
 			function view(obj) {
 				var id2open = $(obj).html();
-				if (!$('#' + id2open).is(':visible')) {
-					//$('#' + id2open).fadeTo('normal', 1);
-					$('#' + id2open).show('fast');
-				}
-				else {
-					//$('#' + id2open).fadeTo('normal', 0);
-					$('#' + id2open).hide('fast');
-				}
-				
-				//$('#' + id2open).fadeTo('normal', 1);
-				}
+				if (!$('#' + id2open).is(':visible')) $('#' + id2open).show('fast');
+				else $('#' + id2open).hide('fast');
+			}
 		</script>
 	</HEAD>
 
