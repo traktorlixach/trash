@@ -2,16 +2,25 @@
 	<HEAD>
 		<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 		<script>
+		/*
 			function view(obj) {
-				var id2open = $(obj).html();
-				if (!$('#' + id2open).is(':visible')) $('#' + id2open).show('fast');
-				else $('#' + id2open).hide('fast');
+				var id2open = $(obj).attr('data-name');
+				if (!$('#' + id2open).is(':visible')) $('#' + id2open).show(0);
+				else $('#' + id2open).hide(0);
+			}
+		*/	
+		
+			var j$ = jQuery.noConflict();
+			function view(obj) {
+				var id2open = j$(obj).attr('data-name');
+				if (!j$('#' + id2open).is(':visible')) j$('#' + id2open).show(0);
+				else j$('#' + id2open).hide(0);
 			}
 		</script>
 	</HEAD>
 
 	<BODY>
-		<span onclick="view(this);">shtani</span>
+		<span onclick="view(this);" data-name="shtani">shtani</span>
 		<div id="shtani" style="display: none;">raznie shtani i sandali s noskami</div>
 		<div>ololo</div>
 	</BODY>
