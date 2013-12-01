@@ -10,18 +10,27 @@
 			}
 		*/	
 		
-			var j$ = jQuery.noConflict();
+			window.opened = null;											// id предыдущего открытого div'а
+			var j$ = jQuery.noConflict();									// оборачиваем в noConflict() для ухода от конфликтов (уже подключён JQuery 1.9.1)
 			function view(obj) {
-				var id2open = j$(obj).attr('data-name');
-				if (!j$('#' + id2open).is(':visible')) j$('#' + id2open).show(0);
-				else j$('#' + id2open).hide(0);
+				var id2open = j$(obj).attr('data-name');					// data-name span'а, на который нажали
+				if (!j$('#' + id2open).is(':visible')) {					// если нужный div он скрыт
+					if (window.opened) j$('#' + window.opened).hide(0);		// если уже был открыт какой-то div, то закрываем его
+					j$('#' + id2open).show(0);								// открываем div с id как data-name span'а
+					window.opened = id2open;								// запоминаем только что открытый div (точнее data-name span'а)
+				}
+//				else j$('#' + id2open).hide(0);								// если нужный div показан, то скрываем его
 			}
 		</script>
 	</HEAD>
 
 	<BODY>
-		<span onclick="view(this);" data-name="shtani">shtani</span>
+		<span onclick="view(this);" data-name="shtani">shtani</span><br />
+		<span onclick="view(this);" data-name="obuv">obuv</span><br />
+		<span onclick="view(this);" data-name="sumki">sumki</span><br />
+		<br />
 		<div id="shtani" style="display: none;">raznie shtani i sandali s noskami</div>
-		<div>ololo</div>
+		<div id="obuv" style="display: none;">obuv obuv obuv obuv obuv s noskami</div>
+		<div id="sumki" style="display: none;">sumki sumki sumki sumki sumki s noskami</div>
 	</BODY>
 </HTML>
