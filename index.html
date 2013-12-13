@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ООП</title>
+    <script src="jquery/jquery-2.0.3.min.js"></script>
+    <script src="jquery/jquery.cookie.js"></script>
+
+    <script>
+        function get_samogon() {
+            window.location = 'samogon.php?l=' + $("#l").val();
+        }
+    </script>
+</head>
+<body>
+    <a href="#" onclick="get_samogon(); return false;">Самогон</a> <input id="l" type="number" value="5" style="width: 50px;"><br />
+    <a href="transport.php">Транспортные средства</a><br />
+</body>
+</html>
